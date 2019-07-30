@@ -9,7 +9,7 @@ try{
 
     
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    var_dump($connection);
+    //var_dump($connection);
 }   
 catch(PDOException $e){
     echo $e->getMessage();
@@ -24,6 +24,6 @@ catch(PDOException $e){
         $statement->setFetchMOde(PDO::FETCH_ASSOC);
 
         $results = $statement->fetchAll();//daj mi rezultate koje si dobio, kad smo setovali fetch mode
-
+        return $results;
     }
 ?>
