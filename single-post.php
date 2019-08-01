@@ -11,7 +11,7 @@
     
 
     $singlePost = database($sql, $connection, 'fetchAll');
-}
+
 ?>
 <main role="main" class="container">
 
@@ -26,6 +26,13 @@
             <p><?php echo $singlePost[0]['body']; ?></p>
             <hr>
         </div>
+
+
+    
+            
+            <button id ="showHide" class="btn btn-default">Hide comments</button><br><br/>
+
+    <div id ="showHideComm">
 
         <h3>Comments</h3>
                 <?php 
@@ -43,11 +50,15 @@
              <hr>
                     
                 <?php } ?>
+    </div><!-- blog. showHideComm-->
 
-        <nav class="blog-pagination">
-            <a class="btn btn-outline-primary" href="#">Older</a>
-            <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-        </nav>
+        <?php
+
+        } else {
+            echo "post id is not passt by url";
+        } ?>
+
+        
 
     </div><!-- /.blog-main -->
 
@@ -58,6 +69,9 @@
 
     </div><!-- /.row -->
 </main><!-- /.container -->
+
+<script src ='main.js'>
+</script>
 
     
 <?php 
