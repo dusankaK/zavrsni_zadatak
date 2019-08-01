@@ -4,7 +4,7 @@
 ?>
 
 <?php
-    $sql ="SELECT id, title, body, author, created_at FROM posts ORDER BY created_at DESC";
+    $sql ="SELECT * FROM posts ORDER BY posts.created_at DESC";
     
     $posts = database($sql, $connection, 'fetchAll');
 ?>
