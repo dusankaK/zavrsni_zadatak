@@ -7,7 +7,8 @@
 <?php
     if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $sql = "SELECT id, title, body, author, created_at FROM posts WHERE id = $id";
+    $sql = "SELECT c.id, c.author as comment_author, c.text, p.id, p.title, p.body, p.author, p.created_at FROM posts as p INNER JOIN comments AS c ON p.id = c.post_id WHERE c.post_id = $id";
+    
 
     $singlePost = database($sql, $connection, 'fetchAll');
 }
@@ -25,6 +26,23 @@
             <p><?php echo $singlePost[0]['body']; ?></p>
             <hr>
         </div>
+
+        <h3>Comments</h3>
+                <?php 
+
+                    $comments = database($sql, $connection, 'fetchAll');
+
+                    foreach ($comments as $comment) {
+                ?>
+                    
+                    <p><?php echo $comment['comment_author'] ?><p>
+
+                    <ul>
+                     <li><?php echo $comment['text']; ?></li>
+                    </ul>
+             <hr>
+                    
+                <?php } ?>
 
         <nav class="blog-pagination">
             <a class="btn btn-outline-primary" href="#">Older</a>
