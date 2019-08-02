@@ -2,9 +2,9 @@
 //konekcija sa bazom podataka
 try{
     $connection = new PDO (
-        'mysql:host=localhost;dbname=blog',
+        'mysql:host=localhost;dbname=blog1',
         'root',
-        'vivify'
+        ''
     );
 
     

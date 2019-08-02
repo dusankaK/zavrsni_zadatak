@@ -1,3 +1,4 @@
+//6. zadatak
 let btn = document.getElementById('showHide')
 
 btn.addEventListener('click',function(){

@@ -7,19 +7,16 @@
 <?php
     if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $sql = "SELECT c.id, c.author as comment_author, c.text, p.title, p.body, p.author, p.created_at FROM posts as p LEFT JOIN comments AS c ON p.id = c.post_id WHERE p.id = $id";
+    $sql = "SELECT c.id, c.author as comment_author, c.text, p.title, p.body, u.first_name, u.last_name, p.created_at FROM posts as p INNER JOIN users as u ON u.id = p.author LEFT JOIN comments AS c ON p.id = c.post_id WHERE p.id = $id";
     
     $singlePost = database($sql, $connection, 'fetchAll');
-
     $comments = [];
     $count = count($singlePost);
     for ($i = 0; $i < $count; $i++){
         $comments[$i]['id'] = $singlePost[$i]['id'];
         $comments[$i]['comment_author'] = $singlePost[$i]['comment_author'];
         $comments[$i]['text'] = $singlePost[$i]['text'];
-
     }
-
 ?>
 <main role="main" class="container">
 
@@ -29,7 +26,7 @@
 
         <div class="blog-post">
             <a href="#"><h2 class="blog-post-title"><?php echo $singlePost[0]['title']; ?></h2></a>
-            <p class="blog-post-meta"><?php echo $singlePost[0]['created_at']. " "; ?> by <a href="#"><?php echo " " . $singlePost[0]['author']; ?></a></p>
+            <p class="blog-post-meta"><?php echo $singlePost[0]['created_at']. " "; ?> by <a href="#"><?php echo $singlePost[0]['first_name'] . " " . $singlePost[0]['last_name']; ?></a></p>
 
             <p><?php echo $singlePost[0]['body']; ?></p>
             <hr>
@@ -60,7 +57,6 @@
 
     <?php 
         echo '<br>';
-
          // sakrij sekiciju komentara ako nema komentara
         if($comments[0]['comment_author'] == "" && $comments[0]['text'] == ""){
         ?> 
@@ -83,9 +79,7 @@
 
         <h3>Comments</h3>
                 <?php 
-
                     $comments = database($sql, $connection, 'fetchAll');
-
                     foreach ($comments as $comment) {
                 ?>
                     
@@ -110,7 +104,6 @@
 </div><!--div emptyComm-->
 
         <?php
-
         } else {
             echo "post id is not passt by url";
         } ?>
@@ -135,3 +128,4 @@
     //dodavanje footer-a
     include('include/footer.php'); 
 ?>
+© 2019 GitHub, Inc.
