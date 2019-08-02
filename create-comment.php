@@ -12,10 +12,11 @@
 		if (empty($name) || empty($comment)) {
 			header ("location:single-post.php?error=1&id=$id");
 		}else{
+			//Slanje podataka u bazu
 			$sql = "INSERT INTO comments(author, text, post_id) VALUES ('$name', '$comment', '$id')";
 			$statement = $connection->prepare($sql);
             $statement->execute();
-    
+    		//kada iskomentarises vrati me na tu istu stranicu single post
            	header("Location:single-post.php?id=$id");
         }
     }

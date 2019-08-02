@@ -1,15 +1,17 @@
 html{
     font-size: 14px;
+    font-family: sans-serif;
 }
 .blog-masthead{
-    background-color: #b34848;
+    background-color: #f3f3f3;
 }
-h1, h2, h3, h4 {
-    color: #b34848;
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+    font-family: Georgia, "Times New Roman", Times, serif;
 }
 .blog-post a h2:hover {
     text-decoration: underline;
-    color: #b34848;
+    color: #000;
 }    
 .btn-danger {
 	/*margin-left:50%;*/
@@ -34,4 +36,86 @@ h1, h2, h3, h4 {
    font-weight: bold;
    font-size: 1.2rem;
 } 
+.blog-title {
+  font-family: sans-serif;
+}
 
+.btn-success {
+  background-color: #069;
+  border-color: #036;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blog-name-container {
+  display: flex;
+  flex-direction: row;
+  padding: 0 30px;
+}
+
+.blog-name-container > h2 {
+  font-family: sans-serif;
+  margin-top: 15px;
+}
+
+.name-first {
+  color: orange;
+}
+.name-last {
+  color: darkorange;
+  font-weight: bold;
+}
+
+.blog-name > a:link,
+.blog-name > a:hover {
+  text-decoration: none;
+}
+
+input {
+  border: 1px solid #ddd;
+}
+
+.blog-sidebar {
+  margin-bottom: 15px;
+}
+
+a {
+	color:#666;
+}
+
+.nav-link {
+	text-transform: uppercase;
+	
+}
+.blog-footer p a {
+	color: #ccc;
+}
+
+select#soflow, select#soflow-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin-bottom: 20px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+h4 {
+	font-size:1.8em;
+}

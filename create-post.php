@@ -10,7 +10,7 @@
     if(!isset($_POST['sendPost'])){
         header("Location:create.php");
     }else{
-        $author = $_POST['user'];
+        $author = $_POST['user'];//dodatak- autor je sada int, pa mora user
         $title = $_POST['title'];
         $newPost = $_POST['newPost'];
         if(empty ($title) || empty ($newPost)){

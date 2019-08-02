@@ -13,6 +13,7 @@ if(!isset($_POST['deleteComm'])){
 
     $statement = $connection->prepare($sql);
     $statement->execute();
+    //ako je komentar obrisan vrati me na single post stranicu sa tim id-em
     header("location:single-post.php?id={$postId}");
 }
 ?>

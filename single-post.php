@@ -18,8 +18,8 @@
         $comments[$i]['text'] = $singlePost[$i]['text'];
     }
 ?>
-<main role="main" class="container">
 
+<main role="main" class="container">
 <div class="row">
 
     <div class="col-sm-8 blog-main">
@@ -55,24 +55,26 @@
        </form>
        <br>
 
-    <?php 
-        echo '<br>';
-         // sakrij sekiciju komentara ako nema komentara
-        if($comments[0]['comment_author'] == "" && $comments[0]['text'] == ""){
-        ?> 
+                <?php 
+                    echo '<br>';
+         
+         // sakrij sekciju komentara ako nema komentara, uslov
+                if($comments[0]['comment_author'] == "" && $comments[0]['text'] == ""){
 
-            <h4>There are currently no comments</h4>
-            <style type="text/css">
-                #emptyComm{
-                display:none;
-                }
-            </style>
+                ?> 
 
-    <?php } ?>
+                    <h4>There are currently no comments</h4>
+                        <style type="text/css">
+                        #emptyComm{
+                        display:none;
+                        }
+                    </style>
+
+                <?php } ?>
 
 
     
-    <div id="emptyComm">
+    <div id="emptyComm"><!--div sekcija bez komentara-->
     <button id ="showHide" class="btn btn-default">Hide comments</button><br><br/>
 
     <div id ="showHideComm">
@@ -104,6 +106,7 @@
 </div><!--div emptyComm-->
 
         <?php
+        //ako id ne postoji
         } else {
             echo "post id is not passt by url";
         } ?>
